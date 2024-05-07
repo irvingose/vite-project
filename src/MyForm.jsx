@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useRef } from "react";
 import { useState } from "react";
 
 function createData() {
@@ -10,6 +12,20 @@ function createData() {
 
 export function MyForm() {
   const [data, setData] = useState(createData);
+
+  const mountedRef = useRef(false);
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      console.group(`Mounting for the first time`);
+    } else {
+      console.log(`Mounting again for debug purposes`);
+    }
+    inputRef.current?.focus();
+  }, []);
 
   function handleInputChange(event) {
     const name = event.target.name;
@@ -41,11 +57,14 @@ export function MyForm() {
     console.log(`Logging in: `, data);
   }
 
+  console.log(inputRef);
+
   return (
     <form onSubmit={handleLoginFormSubmit}>
       <h1>My Form</h1>
 
       <input
+        ref={inputRef}
         name="username"
         value={data.username}
         onChange={handleInputChange}

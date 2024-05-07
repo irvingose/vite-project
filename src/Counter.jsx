@@ -1,15 +1,23 @@
+import { useRef } from "react";
 import { useEffect, useState } from "react";
 
 export function Counter({ initialValue = 0 }) {
   const [counter, setCounter] = useState(initialValue);
 
   useEffect(() => {
-    console.log(`The value of the counter is ${counter}`);
+    if (counter >= initialValue) {
+      useRef.current = "up";
+    } else if (counter < initialValue) {
+      useRef.current = "down";
+    }
+    if (useRef.current !== null) {
+      console.log(`Counter direction: ${useRef.current}`);
+    }
 
     return () => {
       console.log(`The value of the counter was ${counter}`);
     };
-  }, [counter]);
+  }, [counter, initialValue]);
 
   function handleCounterIncrement() {
     setCounter((c) => c + 1);
