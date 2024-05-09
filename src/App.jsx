@@ -8,6 +8,7 @@ import { MyForm } from "./MyForm";
 import { MyUncontrolledForm } from "./MyUncontrolledForm";
 import { MyList } from "./MyList";
 import { Color } from "./Color";
+import { ToDoList } from "./ToDoList";
 
 export function App() {
   return (
@@ -45,6 +46,8 @@ export function App() {
           { id: 3, name: "JBlue" },
         ]}
       />
+      <hr />
+      <ToDoList />
     </div>
   );
 }
