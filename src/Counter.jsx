@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useEffect, useState } from "react";
 import classes from "./Counter.module.scss";
+import Button from "react-bootstrap/Button";
 
 export function Counter({ initialValue = 0 }) {
   const [counter, setCounter] = useState(initialValue);
@@ -46,6 +47,7 @@ export function Counter({ initialValue = 0 }) {
       <button className={classes.button} onClick={handleCounterReset}>
         Reset
       </button>
+      <Button variant="primary">Button</Button>
     </div>
   );
 }

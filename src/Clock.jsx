@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import classes from "./Clock.module.scss";
 
 export function Clock() {
   const [date, setDate] = useState(new Date());
@@ -18,7 +19,7 @@ export function Clock() {
   }, []);
 
   return (
-    <div>
+    <div className={classes.clock}>
       <p>Current time: {date.toLocaleTimeString()}</p>
     </div>
   );

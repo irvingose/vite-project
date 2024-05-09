@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classes from "./ToDoList.module.scss";
 
 export function ToDoList() {
   const [todos, setTodos] = useState([]);
@@ -19,7 +20,7 @@ export function ToDoList() {
   }
 
   return (
-    <div>
+    <div className={classes.todolist}>
       <form onSubmit={handleAddTodo}>
         <input data="todo-input" name="todo" />
         <button type="submit">Add</button>
@@ -29,7 +30,12 @@ export function ToDoList() {
         {todos.map((todo, index) => (
           <li key={index}>
             {todo}
-            <button onClick={() => handleRemoveTodo(index)}>Remove</button>
+            <button
+              className={classes.button}
+              onClick={() => handleRemoveTodo(index)}
+            >
+              Remove
+            </button>
           </li>
         ))}
       </ul>
