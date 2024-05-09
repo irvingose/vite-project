@@ -1,8 +1,13 @@
 import { HelloWorld } from "./HelloWorld";
 
 export function Welcome({ name, age }) {
+  const WelcomeStyle = {
+    backgroundColor: name ? "greenyellow" : "darkgray",
+    color: name ? "#333" : "fff",
+    border: "3px dotted black",
+  };
   return (
-    <div>
+    <div style={WelcomeStyle}>
       <strong>
         <h2>Welcome, {name}!</h2>
       </strong>

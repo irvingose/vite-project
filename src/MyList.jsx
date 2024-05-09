@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classes from "./MyList.module.scss";
 
 function MyListItem({ item }) {
   const [counter, setCounter] = useState(0);
@@ -11,7 +12,9 @@ function MyListItem({ item }) {
     <li>
       <h4>{item.name}</h4>
       <p>{item.age} years old</p>
-      <button onClick={handleIncrementCounter}>{counter}</button>
+      <button className={classes.button} onClick={handleIncrementCounter}>
+        {counter}
+      </button>
     </li>
   );
 }

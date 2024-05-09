@@ -12,10 +12,10 @@ import { ToDoList } from "./ToDoList";
 
 export function App() {
   return (
-    <div>
+    <div className="app">
       <h1>My Awesome Application</h1>
       <hr />
-      <Welcome name="John" age={"24"} />
+      <Welcome name="Franco" age={"14"} />
       <hr />
       <MouseClicker />
       <hr />
