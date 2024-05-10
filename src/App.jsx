@@ -9,10 +9,11 @@ import { MyUncontrolledForm } from "./MyUncontrolledForm";
 import { MyList } from "./MyList";
 import { Color } from "./Color";
 import { ToDoList } from "./ToDoList";
+import { Container } from "./Container";
 
 export function App() {
   return (
-    <div className="app">
+    <Container title={<h1>My Awesome Application</h1>}>
       <h1>My Awesome Application</h1>
       <hr />
       <Welcome name="Franco" age={"14"} />
@@ -48,6 +49,6 @@ export function App() {
       />
       <hr />
       <ToDoList />
-    </div>
+    </Container>
   );
 }
