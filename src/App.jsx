@@ -10,45 +10,60 @@ import { MyList } from "./MyList";
 import { Color } from "./Color";
 import { ToDoList } from "./ToDoList";
 import { Container } from "./Container";
+import { LanguageContext } from "./LanguageContext";
+import { useState } from "react";
 
 export function App() {
+  const [language, setLanguage] = useState("en");
+
+  function handleSetLanguage(language) {
+    setLanguage(language);
+  }
+
   return (
-    <Container title={<h1>My Awesome Application</h1>}>
-      <h1>My Awesome Application</h1>
-      <hr />
-      <Welcome name="Franco" age={"14"} />
-      <hr />
-      <MouseClicker />
-      <hr />
-      <AlertClock />
-      <hr />
-      <Counter />
-      <hr />
-      <Clock />
-      <hr />
-      <MyForm />
-      <hr />
-      <MyUncontrolledForm />
-      <hr />
-      <MyList
-        items={[
-          { id: 1, name: "Jane", age: 33 },
-          { id: 2, name: "Kate", age: 23 },
-          { id: 3, name: "John", age: 34 },
-          { id: 4, name: "Billy", age: 43 },
-          { id: 5, name: "Jimmy", age: 73 },
-        ]}
-      />
-      <hr />
-      <Color
-        items={[
-          { id: 1, name: "Red" },
-          { id: 2, name: "Green" },
-          { id: 3, name: "JBlue" },
-        ]}
-      />
-      <hr />
-      <ToDoList />
-    </Container>
+    <div>
+      <button onClick={() => handleSetLanguage("it")}>IT</button>
+      <button onClick={() => handleSetLanguage("en")}>EN</button>
+      <Container title={<h1>My Awesome Application</h1>}>
+        <LanguageContext.Provider value={language}>
+          <hr />
+          <HelloWorld />
+          <hr />
+          <Welcome name="Franco" age={"14"} />
+          <hr />
+          <MouseClicker />
+          <hr />
+          <AlertClock />
+          <hr />
+          <Counter />
+          <hr />
+          <Clock />
+          <hr />
+          <MyForm />
+          <hr />
+          <MyUncontrolledForm />
+          <hr />
+          <MyList
+            items={[
+              { id: 1, name: "Jane", age: 33 },
+              { id: 2, name: "Kate", age: 23 },
+              { id: 3, name: "John", age: 34 },
+              { id: 4, name: "Billy", age: 43 },
+              { id: 5, name: "Jimmy", age: 73 },
+            ]}
+          />
+          <hr />
+          <Color
+            items={[
+              { id: 1, name: "Red" },
+              { id: 2, name: "Green" },
+              { id: 3, name: "JBlue" },
+            ]}
+          />
+          <hr />
+          <ToDoList />
+        </LanguageContext.Provider>
+      </Container>
+    </div>
   );
 }
