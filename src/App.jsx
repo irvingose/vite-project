@@ -12,6 +12,8 @@ import { ToDoList } from "./ToDoList";
 import { Container } from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import { useState } from "react";
+import { GithubUser } from "./GithubUser";
+import { GithubUsers } from "./GithubUsers";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -30,6 +32,10 @@ export function App() {
           <HelloWorld />
           <hr />
           <Welcome name="Franco" age={"14"} />
+          <hr />
+          <GithubUser username="irvingose" />
+          <hr />
+          <GithubUsers />
           <hr />
           <MouseClicker />
           <hr />
