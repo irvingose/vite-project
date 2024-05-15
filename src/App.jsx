@@ -17,6 +17,7 @@ import { GithubUsers } from "./GithubUsers";
 
 export function App() {
   const [language, setLanguage] = useState("en");
+  const [username, setUsername] = useState(``);
 
   function handleSetLanguage(language) {
     setLanguage(language);
@@ -33,6 +34,10 @@ export function App() {
           <hr />
           <Welcome name="Franco" age={"14"} />
           <hr />
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <GithubUser username="irvingose" />
           <hr />
           <GithubUsers />
