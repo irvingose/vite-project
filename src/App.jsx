@@ -14,6 +14,7 @@ import { LanguageContext } from "./LanguageContext";
 import { useState } from "react";
 import { GithubUser } from "./GithubUser";
 import { GithubUsers } from "./GithubUsers";
+import { UseCurrentLocation } from "./useCurrentLocation";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -41,6 +42,8 @@ export function App() {
           <GithubUser username="irvingose" />
           <hr />
           <GithubUsers />
+          <hr />
+          <UseCurrentLocation />
           <hr />
           <MouseClicker />
           <hr />
