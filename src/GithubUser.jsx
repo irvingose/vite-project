@@ -1,7 +1,7 @@
-import { useGithubUser } from "./useGithubUser";
+import { UseGithubUser } from "./UseGithubUser";
 
 export function GithubUser({ username }) {
-  const { data, error, loading, onFetchUser } = useGithubUser(username);
+  const { data, error, loading, onFetchUser } = UseGithubUser(username);
 
   function handleGetUserData() {
     onFetchUser(username);

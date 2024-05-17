@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { HelloWorld } from "./HelloWorld";
 
 export function Welcome({ name, age }) {
@@ -16,6 +17,7 @@ export function Welcome({ name, age }) {
       {age !== undefined}
       {age > 65 ? <p>You're old.</p> : null}
       {age > 18 && age < 65 && name === "John" ? <p>Welcome, John!</p> : null}
+      <Link to="/login">Login to the app:</Link>
     </div>
   );
 }

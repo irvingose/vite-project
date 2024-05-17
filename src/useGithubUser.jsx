@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useGithubUser(username) {
+export function UseGithubUser(username) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

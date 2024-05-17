@@ -1,20 +1,15 @@
 import { Welcome } from "./Welcome";
-import { HelloWorld } from "./HelloWorld";
-import { AlertClock } from "./AlertClock";
 import { Counter } from "./Counter";
 import { Clock } from "./Clock";
-import { MouseClicker } from "./MouseClicker";
 import { MyForm } from "./MyForm";
-import { MyUncontrolledForm } from "./MyUncontrolledForm";
-import { MyList } from "./MyList";
-import { Color } from "./Color";
 import { ToDoList } from "./ToDoList";
 import { Container } from "./Container";
-import { LanguageContext } from "./LanguageContext";
 import { useState } from "react";
 import { GithubUser } from "./GithubUser";
-import { GithubUsers } from "./GithubUsers";
 import { UseCurrentLocation } from "./useCurrentLocation";
+import { Link, Route, Routes } from "react-router-dom";
+import { Catalogue } from "./Catalogue";
+import { Product } from "./Product";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -28,56 +23,40 @@ export function App() {
     <div>
       <button onClick={() => handleSetLanguage("it")}>IT</button>
       <button onClick={() => handleSetLanguage("en")}>EN</button>
-      <Container title={<h1>My Awesome Application</h1>}>
-        <LanguageContext.Provider value={language}>
-          <hr />
-          <HelloWorld />
-          <hr />
-          <Welcome name="Franco" age={"14"} />
-          <hr />
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+      <Container
+        title={
+          <div>
+            <div>
+              <h1>My Awesome Application</h1>
+              <Link to="/">Home</Link> | <Link to="products">Products</Link>
+            </div>
+          </div>
+        }
+      >
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="products" element={<Catalogue />} />
+          <Route index element={<p>Please select a product.</p>} />
+          <Route path=":id" element={<Product />} />
+          <Route
+            path="*"
+            element={
+              <div>
+                <p>Not found</p>
+                <Link to="/">Go home</Link>
+              </div>
+            }
           />
-          <GithubUser username="irvingose" />
-          <hr />
-          <GithubUsers />
-          <hr />
-          <UseCurrentLocation />
-          <hr />
-          <MouseClicker />
-          <hr />
-          <AlertClock />
-          <hr />
-          <Counter />
-          <hr />
-          <Clock />
-          <hr />
-          <MyForm />
-          <hr />
-          <MyUncontrolledForm />
-          <hr />
-          <MyList
-            items={[
-              { id: 1, name: "Jane", age: 33 },
-              { id: 2, name: "Kate", age: 23 },
-              { id: 3, name: "John", age: 34 },
-              { id: 4, name: "Billy", age: 43 },
-              { id: 5, name: "Jimmy", age: 73 },
-            ]}
-          />
-          <hr />
-          <Color
-            items={[
-              { id: 1, name: "Red" },
-              { id: 2, name: "Green" },
-              { id: 3, name: "JBlue" },
-            ]}
-          />
-          <hr />
-          <ToDoList />
-        </LanguageContext.Provider>
+          <Route path="login" element={<MyForm />} />
+          <Route path="counter" element={<Counter />} />
+          <Route path="users/:username" element={<GithubUser />} />
+          <Route path="clock" element={<Clock />} />
+          <Route path="location" element={<UseCurrentLocation />} />
+          <Route path="todolist" element={<ToDoList />} />
+        </Routes>
       </Container>
     </div>
   );
 }
+
+export default App;
