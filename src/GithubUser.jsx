@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { UseGithubUser } from "./UseGithubUser";
 
 export function GithubUser({ username }) {
@@ -17,6 +18,7 @@ export function GithubUser({ username }) {
           {data.name} {data.login} {data.bio}
         </h2>
       )}
+      <Outlet />
     </div>
   );
 }

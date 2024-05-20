@@ -1,3 +1,4 @@
+// App.js
 import { Welcome } from "./Welcome";
 import { Counter } from "./Counter";
 import { Clock } from "./Clock";
@@ -10,6 +11,8 @@ import { UseCurrentLocation } from "./useCurrentLocation";
 import { Link, Route, Routes } from "react-router-dom";
 import { Catalogue } from "./Catalogue";
 import { Product } from "./Product";
+import { GithubUsers } from "./GithubUsers";
+import AddUserMessage from "./AddUserMessage";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -49,7 +52,10 @@ export function App() {
           />
           <Route path="login" element={<MyForm />} />
           <Route path="counter" element={<Counter />} />
-          <Route path="users/:username" element={<GithubUser />} />
+          <Route path="/users" element={<GithubUser />}>
+            <Route index element={<AddUserMessage />} />{" "}
+            <Route path=":username" element={<GithubUsers />} />
+          </Route>
           <Route path="clock" element={<Clock />} />
           <Route path="location" element={<UseCurrentLocation />} />
           <Route path="todolist" element={<ToDoList />} />
