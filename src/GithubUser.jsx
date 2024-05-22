@@ -1,7 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { UseGithubUser } from "./UseGithubUser";
 
-export function GithubUser({ username }) {
+export function GithubUser() {
+  const { username } = useParams();
   const { data, error, loading, onFetchUser } = UseGithubUser(username);
 
   function handleGetUserData() {

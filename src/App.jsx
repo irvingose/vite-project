@@ -1,4 +1,3 @@
-// App.js
 import { Welcome } from "./Welcome";
 import { Counter } from "./Counter";
 import { Clock } from "./Clock";
@@ -12,7 +11,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { Catalogue } from "./Catalogue";
 import { Product } from "./Product";
 import { GithubUsers } from "./GithubUsers";
-import AddUserMessage from "./AddUserMessage";
+import { GithubUsers2 } from "./GithubUsers2";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -31,7 +30,8 @@ export function App() {
           <div>
             <div>
               <h1>My Awesome Application</h1>
-              <Link to="/">Home</Link> | <Link to="products">Products</Link>
+              <Link to="/">Home</Link> | <Link to="products">Products</Link> |{" "}
+              <Link to="githubusers">Users</Link>
             </div>
           </div>
         }
@@ -39,6 +39,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="products" element={<Catalogue />} />
+          <Route path="githubusers" element={<GithubUsers2 />} />
           <Route index element={<p>Please select a product.</p>} />
           <Route path=":id" element={<Product />} />
           <Route
@@ -52,9 +53,8 @@ export function App() {
           />
           <Route path="login" element={<MyForm />} />
           <Route path="counter" element={<Counter />} />
-          <Route path="/users" element={<GithubUser />}>
-            <Route index element={<AddUserMessage />} />{" "}
-            <Route path=":username" element={<GithubUsers />} />
+          <Route path="users" element={<GithubUser />}>
+            <Route path=":username" element={<GithubUsers2 />} />
           </Route>
           <Route path="clock" element={<Clock />} />
           <Route path="location" element={<UseCurrentLocation />} />
